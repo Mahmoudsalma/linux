@@ -583,6 +583,13 @@ static int axi_hdmi_rx_s_fmt_vid_cap(struct file *file, void *priv_fh,
 	if (axi_hdmi_rx_try_fmt_vid_cap(file, priv_fh, f))
 		return -EINVAL;
 
+	fmt.which = V4L2_SUBDEV_FORMAT_ACTIVE;
+	fmt.pad = ADV7611_PAD_SOURCE;
+	fmt.format.code = V4L2_MBUS_FMT_YUYV8_1X16;
+	ret = v4l2_subdev_call(s->subdev, pad, set_fmt, NULL, &fmt);
+	if (ret)
+		return ret;
+
 	s->width = pix->width;
 	s->height = pix->height;
 	s->stride = pix->bytesperline;
