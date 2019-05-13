@@ -1,0 +1,33 @@
+What:		/sys/bus/iio/devices/iio:deviceX/out_altvoltage_rf8_frequency
+What:		/sys/bus/iio/devices/iio:deviceX/out_altvoltage_rfaux8_frequency
+KernelVersion:
+Contact:	linux-iio@vger.kernel.org
+Description:
+		Stores the PLL frequency in Hz for channels RF8x and RFAUX8x respectively.
+		Reading returns the actual frequency in Hz. RF output frequency range
+		for this channels: 62500000 Hz to 8000000000 Hz. RFAUX8x duplicates the frequency
+		range of RF8x or permits direct access to the VCO output.
+
+What:		/sys/bus/iio/devices/iio:deviceX/out_altvoltage_rf16_frequency
+KernelVersion:
+Contact:	linux-iio@vger.kernel.org
+Description:
+		Stores the PLL frequency in Hz for channel RF16x. Reading returns the actual
+		frequency in Hz. RF16 generates frequencies from 8000000000 Hz to 16000000000 Hz
+
+What:		/sys/bus/iio/devices/iio:deviceX/out_altvoltage_rf32_frequency
+KernelVersion:
+Contact:	linux-iio@vger.kernel.org
+Description:
+		Stores the PLL frequency in Hz for channel RF32x. Reading returns the actual
+		frequency in Hz. RF32x generates frequencies from 16000000000 Hz to 32000000000 Hz
+
+What:		/sys/bus/iio/devices/iio:deviceX/out_altvoltage_rf8_powerdown
+What:		/sys/bus/iio/devices/iio:deviceX/out_altvoltage_rfaux8_powerdown
+What:		/sys/bus/iio/devices/iio:deviceX/out_altvoltage_rf16_powerdown
+What:		/sys/bus/iio/devices/iio:deviceX/out_altvoltage_rf32_powerdown
+KernelVersion:
+Contact:	linux-iio@vger.kernel.org
+Description:
+		This attribute allows the user to power down the PLL and it's RFOut buffers.
+		Writing 1 causes the specified channel to power down. Clearing returns to normal operation.
